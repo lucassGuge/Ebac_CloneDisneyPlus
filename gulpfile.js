@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 const imagemin = require('gulp-imagemin');
 const uglify = require('gulp-uglify');
+const rename = require('gulp-rename');
 
 
 
@@ -17,7 +18,7 @@ function images() {
     .pipe (gulp.dest('./dist/images'));
 }
 function scripts() {
-    return gulp.src('./src/js/**/*.js') // Seleciona todos os arquivos JS
+    return gulp.src('./src/script/*.js') // Seleciona todos os arquivos JS
         .pipe(uglify()) // Comprime os arquivos
         .pipe(rename({ extname: '.min.js' })) // Renomeia para .min.js
         .pipe(gulp.dest('./dist/js')); // Salva na pasta de destino
@@ -29,5 +30,5 @@ exports.default = gulp.parallel(styles, scripts, images);
 // Função para observar mudanças
 exports.watch = function() {
     gulp.watch('./src/styles/**/*.scss', gulp.parallel(styles));
-    gulp.watch('./src/js/**/*.js', gulp.parallel(scripts)); // Adiciona observação para scripts
+    gulp.watch('./src/script/**/*.js', gulp.parallel(scripts)); // Adiciona observação para scripts
 };
