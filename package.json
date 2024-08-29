@@ -18,5 +18,8 @@
     "gulp-sass": "^5.1.0",
     "gulp-uglify": "^3.0.2",
     "sass": "^1.77.6"
+  },
+  "dependencies": {
+    "ebac_clonedisneyplus": "file:"
   }
 }
